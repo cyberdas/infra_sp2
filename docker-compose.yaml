@@ -16,8 +16,8 @@ services:
     restart: always
     volumes:
       - static_volume:/code/static
-    command: sh -c "python manage.py flush --no-input &&
-             python manage.py migrate && 
+    command: sh -c "python manage.py makemigrations &&
+             python manage.py migrate --fake &&
              python manage.py loaddata fixtures.json && 
              python manage.py collectstatic --noinput && 
              gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000"
