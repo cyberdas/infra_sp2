@@ -5,7 +5,7 @@ from users.models import User
 
 class Category(models.Model):
 
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, null=True)
     slug = models.SlugField(unique=True)
 
     def __str__(self):
@@ -52,7 +52,7 @@ class Review(models.Model):
     title = models.ForeignKey(Title, on_delete=models.CASCADE, related_name='reviews')
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 
 class Comment(models.Model):
@@ -63,4 +63,4 @@ class Comment(models.Model):
     pub_date = models.DateTimeField('Дата публикации комментария', auto_now_add=True)
 
     def __str__(self):
-        return self.id
+        return str(self.id)
