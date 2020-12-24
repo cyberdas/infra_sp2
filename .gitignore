@@ -11,11 +11,8 @@ __pycache__/
 .LSOverride
 .vscode
 
-*.sublime-project
-*.sublime-workspace
 
 data
 db.sqlite3
 .docker-entrypoint.sh
-infra_sp2env
 sent_emails
